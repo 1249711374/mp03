@@ -28,6 +28,7 @@ public class TestMP {
 		config.setActiveRecord(true) // 是否支持AR模式
 			  .setAuthor("gaohaoyou") // 作者
 			  .setOutputDir("D:\\workspaces\\mp03\\src\\main\\java") // 生成路径
+				.setEnableCache(false)
 			  .setFileOverride(true)  // 文件覆盖
 			  .setIdType(IdType.AUTO) // 主键策略
 			  .setServiceName("%sService")  // 设置生成的service接口的名字的首字母是否为I
@@ -48,8 +49,8 @@ public class TestMP {
 		stConfig.setCapitalMode(true) //全局大写命名
 				.setDbColumnUnderline(true)  // 指定表名 字段名是否使用下划线
 				.setNaming(NamingStrategy.underline_to_camel) // 数据库表映射到实体的命名策略，下划线转驼峰命名
-//				.setTablePrefix("sys_") //表名前缀
-				.setInclude("tenant_product");  // 生成的表
+				.setTablePrefix("sys_") //表名前缀
+				.setInclude("sys_attr_value");  // 生成的表
 		
 		//4. 包名策略配置 
 		PackageConfig pkConfig = new PackageConfig();
