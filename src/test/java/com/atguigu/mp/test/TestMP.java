@@ -1,11 +1,5 @@
 package com.atguigu.mp.test;
 
-import javax.swing.text.DefaultStyledDocument.AttributeUndoableEdit;
-
-import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
@@ -14,6 +8,9 @@ import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import org.junit.Test;
+
+import java.io.File;
 
 public class TestMP {
 	
@@ -72,7 +69,31 @@ public class TestMP {
 		//6. 执行
 		ag.execute();
 	}
-	
-	
-	
+
+
+	/**
+	 * FILE_NAME为Maven仓库的路径
+	 */
+	public final static String FILE_PATH = "F:/mvn/";
+	public final static String suffix = ".lastUpdated";
+
+	public static void main(String[] args) {
+		deleteErrorFile(new File(FILE_PATH));
+	}
+
+	public static void deleteErrorFile(File file) {
+		if(file.isDirectory()) {
+			for(String childrenFile : file.list()) {
+				deleteErrorFile(new File(file,childrenFile));
+			}
+		}else {
+			if(file.getName().endsWith(suffix)) {
+				file.delete();
+			}
+		}
+	}
+
+
+
+
 }
