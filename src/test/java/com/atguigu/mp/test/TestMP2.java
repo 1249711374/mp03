@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.junit.Test;
 
+
 public class TestMP2 {
     @Test
     public void  testGenerator() {
@@ -19,7 +20,8 @@ public class TestMP2 {
         GlobalConfig gc = new GlobalConfig();
         gc.setActiveRecord(true) // 是否支持AR模式
                 .setAuthor("gaohaoyou") // 作者
-                .setOutputDir("D:\\workspaces\\mp03\\src\\main\\java") // 生成路径
+                //.setOutputDir("D:\\workspaces\\mp03\\src\\main\\java") // 生成路径
+                .setOutputDir("E:\\projects\\mp03\\src\\main\\java") // 生成路径
                 .setEnableCache(false)
                 .setFileOverride(true)  // 文件覆盖
                 .setIdType(IdType.AUTO) // 主键策略
@@ -51,7 +53,7 @@ public class TestMP2 {
 
         // 四大参数必须配置···········
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUrl("jdbc:mysql://192.168.1.250:3306/xzdev?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://192.168.1.250:3306/bbc_sys?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
         dsc.setUsername("xzdev");
         dsc.setPassword("123456");
         mpg.setDataSource(dsc);
@@ -61,13 +63,14 @@ public class TestMP2 {
         strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
         // strategy.setTablePrefix(new String[] { "tlog_", "tsys_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[] { "sys_attr_value" }); // 需要生成的表
+        strategy.setInclude(new String[] { "sys_wechat_third_auth_woa" +
+                "" }); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         mpg.setStrategy(strategy);
 
 //        // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.atguigu.myGenerator");
+        pc.setParent("com.xiangzheng.app.product");
        // pc.setModuleName("store");
         mpg.setPackageInfo(pc);
 
