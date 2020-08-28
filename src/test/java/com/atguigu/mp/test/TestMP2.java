@@ -21,7 +21,7 @@ public class TestMP2 {
         gc.setActiveRecord(true) // 是否支持AR模式
                 .setAuthor("gaohaoyou") // 作者
                 //.setOutputDir("D:\\workspaces\\mp03\\src\\main\\java") // 生成路径
-                .setOutputDir("E:\\projects\\mp03\\src\\main\\java") // 生成路径
+                .setOutputDir("D:\\IdeaProjects\\mp03\\src\\main\\java") // 生成路径
                 .setEnableCache(false)
                 .setFileOverride(true)  // 文件覆盖
                 .setIdType(IdType.AUTO) // 主键策略
@@ -34,7 +34,7 @@ public class TestMP2 {
         gc.setMapperName("%sMapper");
         gc.setXmlName("%sMapper");
         gc.setServiceName("%sService");
-        gc.setServiceImplName("%sServiceImap");
+        gc.setServiceImplName("%sServiceImpl");
         gc.setControllerName("%sController");
         mpg.setGlobalConfig(gc);
 
@@ -63,7 +63,7 @@ public class TestMP2 {
         strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
         // strategy.setTablePrefix(new String[] { "tlog_", "tsys_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[] { "sys_wechat_third_auth_woa" +
+        strategy.setInclude(new String[] { "sys_merchant_info" +
                 "" }); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         mpg.setStrategy(strategy);
