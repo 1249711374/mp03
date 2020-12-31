@@ -12,6 +12,7 @@ import org.junit.Test;
 
 
 public class TestMP2 {
+    /**最新使用*/
     @Test
     public void  testGenerator() {
         AutoGenerator mpg = new AutoGenerator();
@@ -53,7 +54,7 @@ public class TestMP2 {
 
         // 四大参数必须配置···········
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUrl("jdbc:mysql://192.168.1.250:3306/bbc_sys?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://192.168.1.250:3306/storesys_orvz17zxd9?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
         dsc.setUsername("xzdev");
         dsc.setPassword("123456");
         mpg.setDataSource(dsc);
@@ -63,8 +64,7 @@ public class TestMP2 {
         strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
         // strategy.setTablePrefix(new String[] { "tlog_", "tsys_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[] { "sys_merchant_info" +
-                "" }); // 需要生成的表
+        strategy.setInclude(new String[] { "tenant_product_custom_attr_value"}); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         mpg.setStrategy(strategy);
 
@@ -87,5 +87,7 @@ public class TestMP2 {
         // 执行生成
         mpg.execute();
     }
+
+
 
 }
